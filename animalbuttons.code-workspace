@@ -1,0 +1,21 @@
+{
+  "folders": [
+	{
+		"name": "project-root",
+		"path": "."
+	},
+	{
+		"name": "supabase-functions",
+		"path": "supabase/functions"
+	}
+],
+  "settings": {
+    "files.exclude": {
+      "supabase/functions/": true
+    },
+    "rust-analyzer.restartServerOnConfigChange": false,
+    "rust-analyzer.server.extraEnv": {
+      "AUTOMETRICS_DISABLE_DOCS": "1"
+    }
+  }
+}
