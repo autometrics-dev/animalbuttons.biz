@@ -1,14 +1,26 @@
 import { Handler, serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { autometrics } from "../_shared/deps.ts";
+import { autometrics, ObjectivePercentile, ObjectiveLatency } from "https://esm.sh/@autometrics/autometrics@0.7.0-beta";
+import type {
+  Objective
+} from "https://esm.sh/@autometrics/autometrics@0.7.0-beta";
 
-import { ANIMAL_OBJECTIVE, initializeAutometrics } from "../_shared/metrics.ts";
+import { initializeAutometrics } from "../_shared/metrics.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 
 initializeAutometrics();
 
+const FUNCTION_NAME = "panda";
+const MODULE_NAME = "animalbuttons";
+
+const ANIMAL_OBJECTIVE: Objective = {
+  name: "animalbuttons.biz",
+  successRate: ObjectivePercentile.P99_9,
+  latency: [ObjectiveLatency.Ms500, ObjectivePercentile.P99],
+};
+
 const metricsDefinition = {
-  functionName: "panda",
-  moduleName: "animalbuttons",
+  functionName: FUNCTION_NAME,
+  moduleName: MODULE_NAME,
   objective: ANIMAL_OBJECTIVE,
 };
 
