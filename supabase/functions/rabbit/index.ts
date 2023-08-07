@@ -7,14 +7,14 @@ import { ANIMAL_OBJECTIVE } from "../_shared/metrics.ts";
 console.log("Hello from the rabbit function!");
 
 // NOTE - You need to add job/rabbit to the push gateway URL if you want to use buildInfo
-const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY");
+const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") + "/job/rabbit";
 
 init({
   // TODO - figure out proper way to set build info in aggregation context
   buildInfo: {
-    commit: "",
-    version: "",
-    branch: "",
+    commit: "4a1bc7e",
+    version: "0.0.2",
+    branch: "main",
     clearmode: "family",
   },
   pushGateway: PUSH_GATEWAY,

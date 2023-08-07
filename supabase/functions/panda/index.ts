@@ -7,10 +7,10 @@ import type {
 import { initializeAutometrics } from "../_shared/metrics.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 
-initializeAutometrics();
-
 const FUNCTION_NAME = "panda";
 const MODULE_NAME = "animalbuttons";
+
+initializeAutometrics(FUNCTION_NAME);
 
 const ANIMAL_OBJECTIVE: Objective = {
   name: "animalbuttons.biz - DEMO",

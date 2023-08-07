@@ -11,16 +11,16 @@ export const ANIMAL_OBJECTIVE: Objective = {
   latency: [ObjectiveLatency.Ms500, ObjectivePercentile.P99],
 };
 
-export function initializeAutometrics() {
+export function initializeAutometrics(jobName: string) {
   // NOTE - You need to add `job/{name_of_function}`
   //        to the push gateway URL if you want to use buildInfo
-  const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY");
+  const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") + `/job/${jobName}`;
 
   init({
     buildInfo: {
-      commit: "",
-      version: "",
-      branch: "",
+      commit: "4a1bc7e",
+      version: "0.0.2",
+      branch: "main",
       clearmode: "family",
     },
     pushGateway: PUSH_GATEWAY,
