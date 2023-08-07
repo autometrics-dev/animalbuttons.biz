@@ -13,7 +13,7 @@ const FUNCTION_NAME = "panda";
 const MODULE_NAME = "animalbuttons";
 
 const ANIMAL_OBJECTIVE: Objective = {
-  name: "animalbuttons.biz",
+  name: "animalbuttons.biz - DEMO",
   successRate: ObjectivePercentile.P99_9,
   latency: [ObjectiveLatency.Ms500, ObjectivePercentile.P99],
 };
