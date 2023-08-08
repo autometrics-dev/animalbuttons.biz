@@ -2,6 +2,7 @@ import { useState, useCallback, useReducer } from "react";
 import { motion } from "framer-motion";
 
 import { supabase } from "./client";
+import GitHubIcon from "./github-mark-white.svg"
 
 function useRabbit({ addLoading, addAnimal }) {
   const [info, setInfo] = useState({ loading: false });
@@ -112,6 +113,9 @@ function App() {
 
   return (
     <div>
+      <nav>
+        <GitHubCorner />
+      </nav>
       <main>
         <header>
           <h1>animalbuttons.biz</h1>
@@ -198,6 +202,17 @@ const Animal = ({ name }) => {
     </motion.span>
   );
 };
+
+function GitHubCorner() {
+  return (
+    <a
+      className="github-corner"
+      href="https://github.com/autometrics-dev/animalbuttons.biz"
+    >
+        <img src={GitHubIcon} alt="GitHub" />       
+      </a>
+  )
+}
 
 function createUniqueId() {
   return Math.random().toString(36).substring(2) + Date.now().toString(36);

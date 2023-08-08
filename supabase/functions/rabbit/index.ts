@@ -45,7 +45,7 @@ const metricsDefinition = {
 };
 
 // Create a handler that will automatically record metrics for each function invocation
-const handler: Handler = autometrics(metricsDefinition, rabbitHandler);
+const handler = autometrics(metricsDefinition, rabbitHandler);
 
 // Serve our edge function
 serve(handler);

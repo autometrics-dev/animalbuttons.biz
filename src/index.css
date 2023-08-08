@@ -26,11 +26,28 @@ a:hover {
 body {
   box-sizing: border-box;
   margin: 0;
-  padding: 1em;
-  /* display: flex;
-  place-items: center; */
+  padding: 0 1em 1em;
   min-height: 100vh;
 }
+
+nav {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.github-corner {
+  border: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.github-corner img {
+  height: 40px;
+  width: 40px;
+}
+
 main {
   max-width: 40em;
   margin: 0 auto;
@@ -39,7 +56,7 @@ main {
 h1 {
   font-size: 2.6em;
   line-height: 1.1;
-  margin: 1em 0 0;
+  margin: .8em 0 0;
 }
 
 h2 {
@@ -100,7 +117,12 @@ button:focus-visible {
 
 @media screen and (min-width: 600px) {
   body {
-    padding: 6em;
+    padding: 0 6em 6em;
+  }
+
+  nav {
+    height: 72px;
+    margin-bottom: 2.4em;
   }
 
   h1 {

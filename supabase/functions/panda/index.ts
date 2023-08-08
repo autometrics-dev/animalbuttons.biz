@@ -1,4 +1,4 @@
-import { Handler, serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { autometrics, ObjectivePercentile, ObjectiveLatency } from "https://esm.sh/@autometrics/autometrics@0.7.0-beta";
 import type {
   Objective
@@ -7,10 +7,7 @@ import type {
 import { initializeAutometrics } from "../_shared/metrics.ts";
 import { corsHeaders } from "../_shared/cors.ts";
 
-const FUNCTION_NAME = "panda";
-const MODULE_NAME = "animalbuttons";
-
-initializeAutometrics(FUNCTION_NAME);
+initializeAutometrics("panda");
 
 const ANIMAL_OBJECTIVE: Objective = {
   name: "animalbuttons.biz - DEMO",
@@ -19,13 +16,13 @@ const ANIMAL_OBJECTIVE: Objective = {
 };
 
 const metricsDefinition = {
-  functionName: FUNCTION_NAME,
-  moduleName: MODULE_NAME,
+  functionName: "panda",
+  moduleName: "animalbuttons",
   objective: ANIMAL_OBJECTIVE,
 };
 
 // Create a handler that will automatically record metrics for each function invocation
-const handler: Handler = autometrics(metricsDefinition, pandaHandler);
+const handler = autometrics(metricsDefinition, pandaHandler);
 
 // Serve our edge function
 serve(handler);
