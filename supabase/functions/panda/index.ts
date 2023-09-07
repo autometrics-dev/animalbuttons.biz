@@ -1,8 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import {
   autometrics,
-} from "https://esm.sh/@autometrics/autometrics@0.7.0-beta5";
-import { init } from "https://esm.sh/@autometrics/exporter-prometheus-push-gateway@0.7.0-beta5";
+} from "https://esm.sh/@autometrics/autometrics@0.7.0-beta9";
+import { init } from "https://esm.sh/@autometrics/exporter-prometheus-push-gateway@0.7.0-beta9";
 
 import { ANIMAL_OBJECTIVE } from "../_shared/metrics.ts";
 import { corsHeaders } from "../_shared/cors.ts";

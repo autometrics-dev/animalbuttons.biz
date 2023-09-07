@@ -7,7 +7,15 @@ import { ANIMAL_OBJECTIVE } from "../_shared/metrics.ts";
 console.log("Hello from the rabbit function!");
 
 // NOTE - You need to add job/rabbit to the push gateway URL if you want to use buildInfo
-const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") + "/job/rabbit";
+const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") // + "/job/rabbit";
+
+
+const getRabbit = autometrics(async function getRabbit() {
+  // HACK - This is just to simulate latency
+  await new Promise((resolve) => setTimeout(resolve, 10));
+  return Promise.resolve("🐇");
+});
+
 
 init({
   // TODO - figure out proper way to set build info in aggregation context
@@ -70,14 +78,8 @@ async function rabbitHandler(req: Request): Promise<Response> {
   });
 }
 
-const getRabbit = async function getRabbit() {
-  // HACK - This is just to simulate latency
-  await new Promise((resolve) => setTimeout(resolve, 10));
-  return Promise.resolve("🐇");
-};
-
-// const getRabbit = autometrics(async function getRabbit() {
+// const getRabbit = async function getRabbit() {
 //   // HACK - This is just to simulate latency
 //   await new Promise((resolve) => setTimeout(resolve, 10));
 //   return Promise.resolve("🐇");
-// });
+// };
