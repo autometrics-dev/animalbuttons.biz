@@ -1,8 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import {
   autometrics,
-  init,
-} from "https://esm.sh/@autometrics/autometrics@0.7.0-beta";
+} from "https://esm.sh/@autometrics/autometrics@0.7.0-beta5";
+import { init } from "https://esm.sh/@autometrics/exporter-prometheus-push-gateway@0.7.0-beta5";
 
 import { ANIMAL_OBJECTIVE } from "../_shared/metrics.ts";
 import { corsHeaders } from "../_shared/cors.ts";
@@ -20,7 +20,7 @@ init({
     branch: "main",
     clearmode: "family",
   },
-  pushGateway: PUSH_GATEWAY,
+  url: PUSH_GATEWAY,
   // NOTE - The current version of autometrics knows that this means to eagerly push metrics upon completion
   pushInterval: 0,
 });
