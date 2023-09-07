@@ -17,7 +17,7 @@ init({
     branch: "main",
     clearmode: "family",
   },
-  pushGateway: PUSH_GATEWAY,
+  url: PUSH_GATEWAY,
   // NOTE - The current version of autometrics knows that this means to eagerly push metrics upon completion
   pushInterval: 0,
 });
