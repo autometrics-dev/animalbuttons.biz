@@ -7,7 +7,7 @@ import { ANIMAL_OBJECTIVE } from "../_shared/metrics.ts";
 console.log("Hello from the rabbit function!");
 
 // NOTE - You need to add job/rabbit to the push gateway URL if you want to use buildInfo
-const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") // + "/job/rabbit";
+const PUSH_GATEWAY = Deno.env.get("AM_PUSH_GATEWAY") + "/job/rabbit";
 
 
 const getRabbit = autometrics(async function getRabbit() {
