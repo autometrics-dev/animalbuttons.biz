@@ -3,19 +3,22 @@
 ## TODO
 
 - [ ] Clear out `main`, leaving only the README (?)
-- [ ] Create `supabase` branch
-- [ ] Create publicly accessible Prometheus on Railway
+- [x] Create `supabase` branch
+- [ ] Deploy example python app on Railway (with no cors protection on GET routes)
+- [ ] Add env var `VITE_API_URL` on Vercel
+- [ ] Create publicly accessible Prometheus on Railway (amiac)
+- [ ] Connect example python app to Prometheus
 
 ## Example with a Python Web Service
 
-> Check out the branch **python-web-service**
+> Check out the branch **pyconuk**
 
 For the API code, refer to: [autometrics-demo-python-fastapi-animals](https://github.com/autometrics-dev/autometrics-demo-python-fastapi-animals)
 
 ### Running locally
 
 1. `npm install` in project root
-2. `npm run dev` in project root
+2. `VITE_API_URL=http://localhost:8080 npm run dev` in project root
 3. Clone and launch the web service (TODO)
 4. Launch Prometheus and the Autometrics Explorer UI (`am start :8080`)
 

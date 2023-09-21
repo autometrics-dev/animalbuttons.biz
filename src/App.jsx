@@ -18,8 +18,8 @@ function useRabbit({ addLoading, addAnimal }) {
       setInfo({ error, loading: false });
       return;
     }
-    addAnimal(data.message);
-    setInfo({ data, loading: false });
+    addAnimal("🐰");
+    setInfo({ data: "🐰", loading: false });
   };
 
   return { request: getRabbit, info };
@@ -32,6 +32,8 @@ function usePanda({ addAnimal, addLoading }) {
     setInfo((i) => ({ ...i, loading: true }));
     addLoading();
 
+    console.log('chahahdhfasdf')
+    // debugger
     const { data, error } = await api("panda");
 
     if (error) {
@@ -40,8 +42,8 @@ function usePanda({ addAnimal, addLoading }) {
       setInfo({ error, loading: false });
       return;
     }
-    addAnimal(data.message);
-    setInfo({ data, loading: false });
+    addAnimal("🐼");
+    setInfo({ data: "🐼", loading: false });
   };
 
   return { request: getPanda, info };
