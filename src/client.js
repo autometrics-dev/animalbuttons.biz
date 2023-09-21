@@ -1,13 +1,16 @@
+const baseUrl = import.meta.env.VITE_API_URL ?? undefined;
+
 export async function api(animalName) {
   return fetch(`/${animalName}`, {
-    mode: "cors"
-  }).then(async (response, error) => {
-    if (error) {
-      return { error }
+    mode: "cors",
+    baseUrl
+  }).then(async (response, fetchError) => {
+    if (fetchError) {
+      return { error: fetchError };
     }
 
     if (!response.ok) {
-      return { error: { message: "Error from API" } }
+      return { error: { message: "Error from API" } };
     }
 
     try {
@@ -15,8 +18,8 @@ export async function api(animalName) {
       return { data };
     } catch (jsonError) {
       return {
-        error: jsonError
-      }
+        error: jsonError,
+      };
     }
-  })
+  });
 }
