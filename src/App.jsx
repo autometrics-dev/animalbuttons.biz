@@ -1,7 +1,7 @@
 import { useState, useCallback, useReducer } from "react";
 import { motion } from "framer-motion";
 
-import { supabase } from "./client";
+import { api } from "./client";
 import GitHubIcon from "./github-mark-white.svg"
 
 function useRabbit({ addLoading, addAnimal }) {
@@ -10,7 +10,7 @@ function useRabbit({ addLoading, addAnimal }) {
   const getRabbit = async () => {
     setInfo((i) => ({ ...i, loading: true }));
     addLoading();
-    const { data, error } = await makeAnimalApiCall("rabbit");
+    const { data, error } = await api("rabbit");
 
     if (error) {
       console.log(error);
@@ -32,7 +32,7 @@ function usePanda({ addAnimal, addLoading }) {
     setInfo((i) => ({ ...i, loading: true }));
     addLoading();
 
-    const { data, error } = await makeAnimalApiCall("panda");
+    const { data, error } = await api("panda");
 
     if (error) {
       console.log(error);
@@ -45,10 +45,6 @@ function usePanda({ addAnimal, addLoading }) {
   };
 
   return { request: getPanda, info };
-}
-
-async function makeAnimalApiCall(animalName) {
-  return supabase.functions.invoke(animalName);
 }
 
 function useAnimalsState() {

@@ -1,9 +1,22 @@
-import { createClient } from "@supabase/supabase-js";
+export async function api(animalName) {
+  return fetch(`/${animalName}`, {
+    mode: "cors"
+  }).then(async (response, error) => {
+    if (error) {
+      return { error }
+    }
 
-const supabaseUrl =
-  import.meta.env.VITE_SUPABASE_URL || "http://localhost:54321";
-const supabaseAnonKey =
-  import.meta.env.VITE_SUPABASE_ANON_KEY ||
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0";
+    if (!response.ok) {
+      return { error: { message: "Error from API" } }
+    }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    try {
+      const data = await response.json();
+      return { data };
+    } catch (jsonError) {
+      return {
+        error: jsonError
+      }
+    }
+  })
+}
