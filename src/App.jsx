@@ -10,10 +10,7 @@ function useRabbit({ addLoading, addAnimal }) {
   const getRabbit = async () => {
     setInfo((i) => ({ ...i, loading: true }));
     addLoading();
-    const { data, error } = await supabase.functions.invoke("rabbit");
-
-    // NOTE: Calling a non-autometricized version simultaneously to compare supabase's metrics (execution time)
-    supabase.functions.invoke("invisible-rabbit");
+    const { data, error } = await makeAnimalApiCall("rabbit");
 
     if (error) {
       console.log(error);
@@ -35,7 +32,7 @@ function usePanda({ addAnimal, addLoading }) {
     setInfo((i) => ({ ...i, loading: true }));
     addLoading();
 
-    const { data, error } = await supabase.functions.invoke("panda");
+    const { data, error } = await makeAnimalApiCall("panda");
 
     if (error) {
       console.log(error);
@@ -48,6 +45,10 @@ function usePanda({ addAnimal, addLoading }) {
   };
 
   return { request: getPanda, info };
+}
+
+async function makeAnimalApiCall(animalName) {
+  return supabase.functions.invoke(animalName);
 }
 
 function useAnimalsState() {
