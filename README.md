@@ -1,10 +1,37 @@
 # animalbuttons.biz
 
+## TODO
+
+- [ ] Clear out `main`, leaving only the README (?)
+- [ ] Create `supabase` branch
+- [ ] Create publicly accessible Prometheus on Railway
+
+## Example with a Python Web Service
+
+> Check out the branch **python-web-service**
+
+For the API code, refer to: [autometrics-demo-python-fastapi-animals](https://github.com/autometrics-dev/autometrics-demo-python-fastapi-animals)
+
+### Running locally
+
+1. `npm install` in project root
+2. `npm run dev` in project root
+3. Clone and launch the web service (TODO)
+4. Launch Prometheus and the Autometrics Explorer UI (`am start :8080`)
+
+
+### Explanation
+
+
+## Example with Supabase Edge `Functions and autometrics-ts`
+
+> Check out the branch **supabase**
+
 An example of adding objectives and alerts to supabase edge functions, using autometrics-ts.
 
 If you're useing VSCode, I recommend the `animalbuttons.code-workspace` workspace.
 
-## Running locally
+### Running locally
 
 1. `npm install` in project root
 2. `npm run dev` in project root
