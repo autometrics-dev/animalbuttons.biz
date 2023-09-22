@@ -1,14 +1,5 @@
 # animalbuttons.biz
 
-## TODO
-
-- [ ] Clear out `main`, leaving only the README (?)
-- [x] Create `supabase` branch
-- [ ] Deploy example python app on Railway (with no cors protection on GET routes)
-- [ ] Add env var `VITE_API_URL` on Vercel
-- [ ] Create publicly accessible Prometheus on Railway (amiac)
-- [ ] Connect example python app to Prometheus
-
 ## Example with a Python Web Service
 
 > Check out the branch **pyconuk**
