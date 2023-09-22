@@ -206,7 +206,7 @@ function GitHubCorner() {
   return (
     <a
       className="github-corner"
-      href="https://github.com/autometrics-dev/animalbuttons.biz"
+      href="https://github.com/autometrics-dev/animalbuttons.biz/tree/pyconuk"
     >
         <img src={GitHubIcon} alt="GitHub" />       
       </a>
